@@ -1,16 +1,26 @@
+import React from 'react';
 import './App.css';
-import React, { useState } from "react";
+import TodoList from './TodoList';
+import TodoListData from './TodoLIstData';
 
 const App = () => {
-  const [count, setCount] = useState(0);
   return (
     <div className="App">
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <span>{count}</span>
-      <button onClick={() => setCount(count - 1)}>-</button>
+      <h1>TODOリスト</h1>
+      <form action="">
+        <input type="text"/>
+        <button type="submit">送信</button>
+      </form>
+      <h2> リスト一覧</h2>
+      <ul className="lists">
+        {TodoListData.map((todo, index) => {
+          return (
+            <TodoList id={todo.id} text={todo.text} key={index} />
+          )
+        })}
+      </ul>
     </div>
   );
 }
-
 
 export default App;

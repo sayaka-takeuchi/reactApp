@@ -1,0 +1,13 @@
+body {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+.lists {
+  width: 200px;
+  margin: 0 auto;
+  text-align: left;
+} 
