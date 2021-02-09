@@ -11,7 +11,7 @@ const ToDoList = () => {
 const dispatch = useDispatch();
 const toDosState = useSelector((state: State) => state.toDosReducer );
 const [text, setText] = useState("");
-
+console.log(window.location.pathname)
   return (
     <div className="App">
       <h1>TODOリスト</h1>
@@ -35,7 +35,7 @@ const [text, setText] = useState("");
       <ul className="lists">
         {toDosState.toDos.map((todo, index) => {
           return (
-            <ToDoListRow text={todo.text} key={index} />
+            <ToDoListRow text={todo.text} key={index} id={index}/>
           )
         })}
       </ul>

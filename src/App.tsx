@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ToDoDetail from './todo/ToDoDetail';
 import ToDoList from './todo/ToDoList';
 
-const App = () => {
-  return (
+const App = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={ToDoList} />
+      <Route exact path="/" component={ToDoList} />
+      <Route path="/to_dos/:id" component={ToDoDetail} />
     </Switch>
   </BrowserRouter>
-  )
-}
+  );
 
 export default App;
