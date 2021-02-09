@@ -4,7 +4,7 @@ type TodoListPropsType = {
   text: string,
 }
 
-const TodoList: FC<TodoListPropsType> = (props) => {
+const ToDoListRow: FC<TodoListPropsType> = (props) => {
   return (
     <li>
       {props.text}
@@ -12,4 +12,4 @@ const TodoList: FC<TodoListPropsType> = (props) => {
   )
 }
 
-export default TodoList;
+export default ToDoListRow;
