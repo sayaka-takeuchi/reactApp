@@ -25,7 +25,8 @@ const [text, setText] = useState("");
           onClick={(e) => {
             e.preventDefault();
             console.log(toDosState);
-            dispatch(toDosAction.addToDo(text))
+            dispatch(toDosAction.addToDo(text));
+            setText('');
           }}>
             送信
         </button>
