@@ -11,7 +11,6 @@ const ToDoList = () => {
 const dispatch = useDispatch();
 const toDosState = useSelector((state: State) => state.toDosReducer );
 const [text, setText] = useState("");
-console.log(window.location.pathname)
   return (
     <div className="App">
       <h1>TODOリスト</h1>
@@ -24,7 +23,6 @@ console.log(window.location.pathname)
           type="submit" 
           onClick={(e) => {
             e.preventDefault();
-            console.log(toDosState);
             dispatch(toDosAction.addToDo(text));
             setText('');
           }}>
