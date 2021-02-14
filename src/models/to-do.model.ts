@@ -1,3 +1,5 @@
 export type ToDo = {
-  text: string;
+  title: string,
+  detail: string,
+  deadline: string,
 }

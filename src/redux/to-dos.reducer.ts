@@ -14,9 +14,9 @@ export const initialToDosState: ToDosState = {
 
 // 初期値を作成
 export const toDosReducer = reducerWithInitialState(initialToDosState)
-// 状態(state)とアクション(action)を引数にとる(今回は内容がtextのみのためtextになっている)
+// 状態(state)とアクション(action)を引数にとる
 // toDosActionのaddTodoの時にreturn内を実行する
-  .case(toDosAction.addToDo,(state,text) => {
-    state.toDos.push({text})
+  .case(toDosAction.addToDo,(state,action) => {
+    state.toDos.push( {...action} )
     return { ...state }
   })

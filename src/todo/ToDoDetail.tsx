@@ -9,10 +9,18 @@ const ToDoDetail = (props: any) => {
   return (
     <div>
       <h1>詳細</h1>
-      <p>タイトル</p>
-      <p>{toDosState.toDos[id].text}</p>
-      <p>詳細</p>
-      <p>期限</p>
+      <div className="list-item">
+        <h2>タイトル</h2>
+        <p>{toDosState.toDos[id].title}</p>
+      </div>
+      <div className="list-item">
+        <h2>詳細</h2>
+        <p>{toDosState.toDos[id].detail}</p>
+      </div>
+      <div className="list-item">
+        <h2>期限</h2>
+        <p>{toDosState.toDos[id].deadline}</p>
+      </div>
       <Link to='/'>一覧へ戻る</Link>
     </div>
   )
