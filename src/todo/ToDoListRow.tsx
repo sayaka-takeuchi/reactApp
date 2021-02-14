@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
+import "../style/style.scss";
 
 type TodoListPropsType = {
   title: string,
@@ -8,7 +9,7 @@ type TodoListPropsType = {
 
 const ToDoListRow: FC<TodoListPropsType> = (props) => {
   return (
-    <li>
+    <li className='list__item'>
       <Link to={`/to_dos/${props.id}`}>
         {props.title}
       </Link>

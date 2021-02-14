@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toDosAction } from '../redux/to-dos.action';
-
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import { Box } from '@material-ui/core';
 
 const ToDoListForm = () => {
   const dispatch = useDispatch();
@@ -18,44 +20,48 @@ const ToDoListForm = () => {
 
   return (
     <form action="">
-      <div className="form-item">
-        <label htmlFor="title" >
-        タイトル:
-        <input type="text"
+      <Box>
+        <TextField 
+          label="title"
           id="title"
           value={state.title}
-          onChange={handleChange('title')}
+          onChange={handleChange('title')} 
         />
-        </label>
-      </div>
-      <div className="form-item">
-        <label htmlFor="detail">
-          詳細:
-        <input type="text"
-        value={state.detail}
-        onChange={handleChange('detail')}
+      </Box>
+      <Box>
+        <TextField 
+          label="detail"
+          id="title"
+          value={state.detail}
+          onChange={handleChange('detail')} 
         />
-        </label>
-      </div>
-      <div className="form-item">
-        <label htmlFor="deadline">
-          期限:
-        <input type="date"
-        id="deadline"
-        value={state.deadline}
-        onChange={handleChange('deadline')}
+      </Box>
+      <Box mt={1}>
+        <TextField
+          id="deadline"
+          label="deadline"
+          type="date"
+          defaultValue="2017-05-24"
+          InputLabelProps={{
+          shrink: true,
+          }}
+          value={state.deadline}
+          onChange={handleChange('deadline')}
         />
-        </label>
-      </div>
-      <button 
-        type="submit" 
-        onClick={(e) => {
-          e.preventDefault();
-          dispatch(toDosAction.addToDo(state));
-          setState(initialState);
-        }}>
-          送信
-      </button>
+      </Box>
+      <Box mt={2}>
+        <Button
+          variant="contained" 
+          color="primary"
+          type="submit" 
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(toDosAction.addToDo(state));
+            setState(initialState);
+          }}>
+            送信
+        </Button>
+      </Box>
     </form>
   )
 }

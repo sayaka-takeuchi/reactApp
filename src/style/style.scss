@@ -1,0 +1,20 @@
+// TOPページ
+.lists {
+  width: 70%;
+  margin: 0 auto;
+  padding: 0;
+} 
+
+.list__item {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: .3s;
+  & > a {
+    text-decoration: none;
+    color: #000;
+  }
+  &:hover {
+    background: #ddd;
+  }
+}
