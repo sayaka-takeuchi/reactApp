@@ -1,7 +1,12 @@
 body {
   text-align: center;
+  background: #ffb60c;
 }
 
 li {
   list-style: none;
+}
+
+.App {
+  margin-top: 5%;
 }
