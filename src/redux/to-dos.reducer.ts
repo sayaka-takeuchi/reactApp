@@ -9,7 +9,13 @@ export type ToDosState = {
 
 // 指定した型を用いて初期値を指定
 export const initialToDosState: ToDosState = {
-  toDos: [],
+  toDos: [
+    {
+      title:　"振り込み",
+      detail: "銀行で振り込みを済ませる",
+      deadline: "2021/3/31"
+    }
+  ],
 };
 
 // 初期値を作成
