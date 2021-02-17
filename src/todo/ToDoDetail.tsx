@@ -3,8 +3,14 @@ import { State } from "../redux/store";
 import Button from '@material-ui/core/Button';
 import {BiMessageDetail, IoTimerOutline, TiPencil} from "react-icons/all";
 import "../style/style.scss";
+import {FC} from "react";
 
-const ToDoDetail = (props: any) => {
+type ToDoDetailPropsType = {
+  match: any;
+  id: number;
+}
+
+const ToDoDetail: FC<ToDoDetailPropsType> = (props) => {
   const toDosState = useSelector((state: State) => state.toDosReducer );
 
   const id = props.match.params.id;
