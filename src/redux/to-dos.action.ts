@@ -3,7 +3,13 @@ import { ToDo } from "../models/to-do.model";
 
 const actionCreator = actionCreatorFactory();
 
-// typeが'ADD_TODO'でpayloadがsting型のアクション
+export enum ToDosActionTypes {
+  ADD_TODO = "ADD_TODO",
+  DELETE_TODO = "DELETE_TODO",
+}
+
+// typeが'ADD_TODO'でpayloadがToDo型のアクション
 export const toDosAction = {  
-  addToDo: actionCreator<ToDo>('ADD_TODO')
+  addToDo: actionCreator<ToDo>(ToDosActionTypes.ADD_TODO),
+  deleteToDo: actionCreator<ToDo>(ToDosActionTypes.DELETE_TODO)
 }

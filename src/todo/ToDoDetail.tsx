@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
 import { State } from "../redux/store";
-import Button from '@material-ui/core/Button';
 import {BiMessageDetail, IoTimerOutline, TiPencil} from "react-icons/all";
 import "../style/style.scss";
 import {FC} from "react";
+import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 type ToDoDetailPropsType = {
   match: any;
@@ -38,9 +39,11 @@ const ToDoDetail: FC<ToDoDetailPropsType> = (props) => {
         </div>
         <p>{toDosState.toDos[id].deadline}</p>
       </div>
-      <Button variant="contained" color="primary" href="/">一覧へ戻る</Button>
+      <Button variant="contained" color="primary">
+        <Link to="/" className="list-item__link">一覧へ戻る</Link>
+      </Button>
     </div>
   )
-}
+};
 
 export default ToDoDetail;

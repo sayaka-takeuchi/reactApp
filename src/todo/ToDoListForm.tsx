@@ -8,7 +8,7 @@ import { Box } from '@material-ui/core';
 const ToDoListForm = () => {
   const dispatch = useDispatch();
   const initialState = {
-  title: '', 
+  title: '',
   detail: '', 
   deadline:''
   }
@@ -41,7 +41,6 @@ const ToDoListForm = () => {
           id="deadline"
           label="deadline"
           type="date"
-          defaultValue="2017-05-24"
           InputLabelProps={{
           shrink: true,
           }}

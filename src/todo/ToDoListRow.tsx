@@ -1,20 +1,33 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import "../style/style.scss";
-import { GrNext } from "react-icons/all";
+import { AiFillDelete, BiChevronRight } from "react-icons/all";
+import { toDosAction } from "../redux/to-dos.action";
+import { useDispatch } from "react-redux";
+import { ToDo } from "../models/to-do.model";
 
 type TodoListPropsType = {
   title: string,
   id: number,
+  todo: ToDo,
 }
 
 const ToDoListRow: FC<TodoListPropsType> = (props) => {
+  const dispatch = useDispatch();
   return (
     <li className='list__item'>
       {props.title}
-      <Link to={`/to_dos/${props.id}`}>
-        <GrNext className="list__item__next-icon"/>
-      </Link>
+      <div className="icons">
+        <AiFillDelete
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(toDosAction.deleteToDo(props.todo))
+          }}
+        />
+        <Link to={`/to_dos/${props.id}`}>
+          <BiChevronRight className="list__item__next-icon"/>
+        </Link>
+      </div>
     </li>
   )
 }
