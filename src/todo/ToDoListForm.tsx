@@ -10,7 +10,8 @@ const ToDoListForm = () => {
   const initialState = {
   title: '',
   detail: '', 
-  deadline:''
+  deadline:'',
+  completed: false
   }
   const [state, setState] = useState(initialState);
 

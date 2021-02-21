@@ -8,6 +8,7 @@ import ToDoListForm from './ToDoListForm';
 
 const ToDoList = () => {
 const toDosState = useSelector((state: State) => state.toDosReducer);
+ console.log(toDosState);
   return (
     <div className="App">
       <ToDoListForm />
@@ -15,7 +16,7 @@ const toDosState = useSelector((state: State) => state.toDosReducer);
       <ul className="lists">
         {toDosState.toDos.map((todo, index) => {
           return (
-            <ToDoListRow title={todo.title} key={index} id={index} todo={todo}/>
+            <ToDoListRow title={todo.title} key={index} id={index} todo={todo} completed={todo.completed}/>
           )
         })}
       </ul>

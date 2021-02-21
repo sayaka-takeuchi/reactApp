@@ -10,12 +10,13 @@ type TodoListPropsType = {
   title: string,
   id: number,
   todo: ToDo,
+  completed: boolean,
 }
 
 const ToDoListRow: FC<TodoListPropsType> = (props) => {
   const dispatch = useDispatch();
   return (
-    <li className='list__item'>
+    <li className={`list__item ${props.completed? "completed" :""}`}>
       {props.title}
       <div className="icons">
         <AiFillDelete

@@ -34,6 +34,14 @@ form {
   right: 20px;
   transform: translateY(-50%);
   cursor: pointer;
+  & > a {
+    margin-left: 1rem;
+  }
+}
+
+.completed {
+  text-decoration: line-through;
+  background: #ddd;
 }
 
 //詳細ページ
@@ -61,6 +69,12 @@ form {
     width: 1.5rem;
     height: 1.5rem;
     margin-right: .5rem;
+  }
+  &__buttons {
+    display: flex;
+    & button:first-of-type {
+      margin-right: .5rem;
+    }
   }
   &__link {
     color: #fff;
