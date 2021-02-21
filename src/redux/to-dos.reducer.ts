@@ -20,8 +20,7 @@ export const initialToDosState: ToDosState = {
 
 export const toDosReducer = reducerWithInitialState(initialToDosState)
   .case(toDosAction.addToDo,(state,action) => {
-    state.toDos.push( {...action} )
-    return { ...state }
+    return {...state,  toDos: state.toDos.concat([action])}
   })
   .case(toDosAction.deleteToDo,(state,action) => {
     return {...state, toDos: state.toDos.filter((toDo) => toDo !== action )}
