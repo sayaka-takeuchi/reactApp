@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { State } from "../redux/store";
-import {　BiMessageDetail, IoTimerOutline, TiPencil　} from "react-icons/all";
+import { BiMessageDetail, IoTimerOutline, TiPencil } from "react-icons/all";
 import "../style/style.scss";
 import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";

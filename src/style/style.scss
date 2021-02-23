@@ -10,7 +10,7 @@ form {
   width: 50%;
   margin: 0 auto;
   padding: 0;
-} 
+}
 
 .list__item {
   margin-bottom: 10px;
@@ -63,17 +63,17 @@ form {
   &__title {
     display: flex;
     justify-content: center;
-    align-items: center
+    align-items: center;
   }
   &__icon {
     width: 1.5rem;
     height: 1.5rem;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
   &__buttons {
     display: flex;
     & button:first-of-type {
-      margin-right: .5rem;
+      margin-right: 0.5rem;
     }
   }
   &__link {

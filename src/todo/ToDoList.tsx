@@ -12,7 +12,7 @@ const toDosState = useSelector((state: State) => state.toDosReducer);
   return (
     <div className="App">
       <ToDoListForm />
-      <h1>リスト一覧</h1>
+      <h1 className="page-title">リスト一覧</h1>
       <ul className="lists">
         {toDosState.toDos.map((todo, index) => {
           return (

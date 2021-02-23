@@ -5,6 +5,12 @@ import { AiFillDelete, BiChevronRight } from "react-icons/all";
 import { toDosAction } from "../redux/to-dos.action";
 import { useDispatch } from "react-redux";
 import { ToDo } from "../models/to-do.model";
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 type TodoListPropsType = {
   title: string,
@@ -14,17 +20,52 @@ type TodoListPropsType = {
 }
 
 const ToDoListRow: FC<TodoListPropsType> = (props) => {
+  const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <li className={`list__item ${props.completed? "completed" :""}`}>
       {props.title}
       <div className="icons">
         <AiFillDelete
-          onClick={(e) => {
-            e.preventDefault();
-            dispatch(toDosAction.deleteToDo(props.todo))
-          }}
+          onClick={handleClickOpen}
         />
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          <p>リストを削除します。</p>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <p>削除したリストは元には戻せません。<br/>削除を実行する場合は「削除」をクリックしてください。</p>
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            キャンセル
+          </Button>
+          <Button 
+            onClick={(e) => {
+              e.preventDefault();
+              dispatch(toDosAction.deleteToDo(props.todo))
+            }} 
+            color="secondary"
+          >
+            削除
+          </Button>
+        </DialogActions>
+      </Dialog>
         <Link to={`/to_dos/${props.id}`}>
           <BiChevronRight className="list__item__next-icon"/>
         </Link>
