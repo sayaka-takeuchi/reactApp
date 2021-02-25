@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { toDosAction } from '../redux/to-dos.action';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Box } from '@material-ui/core';
+import {ToDo} from '../models/to-do.model'
 
-const ToDoListForm = () => {
+type ToDoListFormPropsType = {
+  toDoList: ToDo
+}
+
+const ToDoListForm: FC<ToDoListFormPropsType> = (props) => {
+  console.log(props.toDoList)
   const dispatch = useDispatch();
   const initialState = {
   title: '',

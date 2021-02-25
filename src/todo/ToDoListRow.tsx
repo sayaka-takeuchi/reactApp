@@ -13,10 +13,9 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 type TodoListPropsType = {
-  title: string,
   id: number,
   todo: ToDo,
-  completed: boolean,
+  setToDoList: React.Dispatch<React.SetStateAction<ToDo>>,
 }
 
 const ToDoListRow: FC<TodoListPropsType> = (props) => {
@@ -31,8 +30,8 @@ const ToDoListRow: FC<TodoListPropsType> = (props) => {
   };
 
   return (
-    <li className={`list__item ${props.completed? "completed" :""}`}>
-      {props.title}
+    <li className={`list__item ${props.todo.completed? "completed" :""}`}>
+      {props.todo.title}
       <div className="icons">
         <AiFillDelete
           onClick={handleClickOpen}
