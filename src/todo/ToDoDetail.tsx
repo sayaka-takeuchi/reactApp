@@ -3,21 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { State } from "../redux/store";
 import { BiMessageDetail, IoTimerOutline, TiPencil } from "react-icons/all";
 import "../style/style.scss";
-import { Link } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import { toDosAction } from "../redux/to-dos.action";
 import ToDoDetailItem from "./ToDoDetailItem";
 
-type ToDoDetailPropsType = {
-  match: any;
-  id: number;
-}
+type ToDoDetailPropsType = RouteComponentProps<{id: string}>
 
 const ToDoDetail: FC<ToDoDetailPropsType> = (props) => {
   const toDosState = useSelector((state: State) => state.toDosReducer );
   const dispatch = useDispatch();
 
-  const id = props.match.params.id;
+  const id = parseInt(props.match.params.id);
   const toDo = toDosState.toDos[id];
 
   return (
