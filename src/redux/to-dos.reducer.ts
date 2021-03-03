@@ -11,7 +11,7 @@ export type ToDosState = {
 export const initialToDosState: ToDosState = {
   toDos: [
     {
-      title:　"振り込み",
+      title: "振り込み",
       detail: "銀行で振り込みを済ませる",
       deadline: "2021/3/31",
       completed: false
@@ -29,3 +29,6 @@ export const toDosReducer = reducerWithInitialState(initialToDosState)
   .case(toDosAction.completed, (state,action) => {
     return {...state, toDos: state.toDos.map(todo => todo === action? {...todo, completed: !todo.completed} : todo)}
   })
+  // .case(toDosAction.getToDo,(state,action) => {
+  //   return {...state, toDos: state.toDos.filter((toDo) => toDo === action)}
+  // })

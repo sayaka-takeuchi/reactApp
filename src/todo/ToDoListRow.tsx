@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import "../style/style.scss";
-import { AiFillDelete, BiChevronRight } from "react-icons/all";
+import { AiFillDelete, BiChevronRight, BiEdit } from "react-icons/all";
 import { toDosAction } from "../redux/to-dos.action";
 import { useDispatch } from "react-redux";
 import { ToDo } from "../models/to-do.model";
@@ -33,6 +33,9 @@ const ToDoListRow: FC<TodoListPropsType> = (props) => {
     <li className={`list__item ${props.todo.completed? "completed" :""}`}>
       {props.todo.title}
       <div className="icons">
+        <BiEdit 
+          onClick={() => {props.setToDoList(props.todo)}}
+        />
         <AiFillDelete
           onClick={handleClickOpen}
         />
