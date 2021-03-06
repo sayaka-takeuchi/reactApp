@@ -61,7 +61,8 @@ const ToDoListRow: FC<TodoListPropsType> = (props) => {
             onClick={(e) => {
               e.preventDefault();
               dispatch(toDosAction.deleteToDo(props.todo))
-            }} 
+              handleClose()
+            }}
             color="secondary"
           >
             削除
