@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import "../style/style.scss";
 import { AiFillDelete, BiChevronRight, BiEdit } from "react-icons/all";
 import { toDosAction } from "../redux/to-dos.action";
@@ -21,6 +21,7 @@ type TodoListPropsType = {
 const ToDoListRow: FC<TodoListPropsType> = (props) => {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,7 +35,8 @@ const ToDoListRow: FC<TodoListPropsType> = (props) => {
       {props.todo.title}
       <div className="icons">
         <BiEdit 
-          onClick={() => {props.setToDoList(props.todo)}}
+          // onClick={() => {props.setToDoList(props.todo)}}
+          onClick={() => {history.push("/to_dos/new")}}
         />
         <AiFillDelete
           onClick={handleClickOpen}

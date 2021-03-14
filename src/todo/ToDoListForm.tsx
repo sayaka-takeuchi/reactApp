@@ -5,6 +5,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { Box } from '@material-ui/core';
 import {ToDo} from '../models/to-do.model'
+import {Link} from "react-router-dom";
+import "../style/style.scss"
 
 type ToDoListFormPropsType = {
   toDoList: ToDo
@@ -27,6 +29,7 @@ const ToDoListForm: FC<ToDoListFormPropsType> = (props) => {
 
   return (
     <form action="">
+      <h1>新規追加</h1>
       <Box>
         <TextField 
           label="title"
@@ -55,7 +58,10 @@ const ToDoListForm: FC<ToDoListFormPropsType> = (props) => {
           onChange={handleChange('deadline')}
         />
       </Box>
-      <Box mt={2}>
+      <Box mt={2} className="buttons">
+        <Button variant="contained" color="primary">
+          <Link to="/" className="list-item__link">一覧へ戻る</Link>
+        </Button>
         <Button
           variant="contained" 
           color="primary"

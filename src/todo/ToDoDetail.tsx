@@ -23,7 +23,7 @@ const ToDoDetail: FC<ToDoDetailPropsType> = (props) => {
       <ToDoDetailItem title={"タイトル"} value={toDo.title} icon={TiPencil}/>
       <ToDoDetailItem title={"詳細"} value={toDo.detail} icon={BiMessageDetail} />
       <ToDoDetailItem title={"期限"} value={toDo.deadline} icon={IoTimerOutline} />
-      <div className="list-item__buttons">
+      <div className="buttons">
         <Button variant="contained" color="primary">
           <Link to="/" className="list-item__link">一覧へ戻る</Link>
         </Button>

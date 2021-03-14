@@ -1,13 +1,13 @@
 // TOPページ
-form {
-  background: #fefefe;
-  width: 50%;
-  margin: 0 auto 1.5rem;
-  padding: 1rem;
-}
-
-.App > h1 {
-  margin-bottom: 1rem;
+.App {
+  & > h1 {
+    margin-bottom: 1rem;
+  }
+  & > .add-icon {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+  }
 }
 
 .page-title {
@@ -75,14 +75,24 @@ form {
     height: 1.5rem;
     margin-right: 0.5rem;
   }
-  &__buttons {
-    display: flex;
-    & button:first-of-type {
-      margin-right: 0.5rem;
-    }
-  }
   &__link {
     color: #fff;
     text-decoration: none;
   }
+}
+
+.buttons button:first-of-type {
+    margin-right: 0.5rem;
+  }
+
+// 追加・編集ページ
+form {
+    background: #fefefe;
+    width: 50%;
+    margin: 0 auto 1.5rem;
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
